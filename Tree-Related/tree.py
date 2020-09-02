@@ -35,6 +35,19 @@ class Node:
                 queue.append(temp.left)
             if(temp.right):
                 queue.append(temp.right)
+
+def inOrderiterative(root):
+    stack = [root]
+    current = root.left
+    while(len(stack)>0):
+        if(current!= None):
+            stack.append(current)
+            current = current.left
+        else:
+            t = stack.pop()
+            current = t.right
+            print(t.key,end=" ")
+    return None
                 
 
 ## TYPES OF BINARY TREE
@@ -69,5 +82,9 @@ root.inorder()
 print("\nLevelOrder Traversal : ", end = " ")
 root.levelorder(root)
 
+print("\nInOrder Traversal - Iterative : ", end = " ")
+inOrderiterative(root)
+
 print("\n")
 print(IsFullBinaryTree(root))
+
